@@ -17,14 +17,20 @@ def lessc(fileroot):
 	if is_compress:
 		execmd += ' -compress'
 
-	res = subprocess.Popen(execmd,stdout=subprocess.PIPE,shell=True)
-	#res.wait()
-	remsg = res.stdout.read()
+	res = subprocess.Popen(execmd,stdin = subprocess.PIPE,stdout=subprocess.PIPE, stderr = subprocess.PIPE, shell=True)
+	res.wait()
 
-	if remsg=='':
+	error = res.stderr.read()
+	print error
+	
+	remsg = '';
+	if error=='':
 		remsg = ' ** compild:'+fileroot+'.css ** '
-
-	print remsg
+	else:
+		errorinfo = error.split("\r\n")
+		#print errorinfo
+		remsg = errorinfo[2]+"    "+errorinfo[6]+""
+		#remsg = 'Error:'+re.match('message\:,*',error).groups()
 
 	sublime.set_timeout(functools.partial(status,remsg),1200);
 	sublime.set_timeout(functools.partial(reloadCss,fileroot),400);

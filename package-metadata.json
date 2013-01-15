@@ -1,1 +1,7 @@
-{"url": "http://files.cnblogs.com/tangoboy/Less4SublimeText2.zip", "version": "2012.06.16.19.05.06", "description": "LESS compiler for Sublime Text 2 in windows"}
+{
+"url":"https://github.com/fengdi/lessc",
+"version": "2013.01.15",
+"description": "LESS compiler for Sublime Text 2 in windows"
+"author": "fengdi",
+"homepage": "https://github.com/fengdi/lessc"
+}

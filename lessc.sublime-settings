@@ -1,3 +1,11 @@
 {
+	"mode":"black",
+	/*
+      black:自动编译所有保存文件
+        在less文件中加入 //#st:!lessc 不会编译
+      white:默认不编译文件
+        在less文件中加入 //#st:lessc 会被编译
+      off:关闭
+	*/
 	"compress": false //是否启用压缩
 }
